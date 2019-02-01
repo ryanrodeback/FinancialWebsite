@@ -1,0 +1,104 @@
+/*main colors that I'm using darkest to lightest
+070C10
+162736
+203449
+708594
+00A7FF
+
+/* Sticky footer styles ***************************************/
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 20px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 20px;
+  line-height: 20px;
+  /* Vertically center the text there */
+}
+
+/***********************************************************/
+/************** Coloring *********************************/
+/* Text color */
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
+  color: #708594;
+}
+
+a {
+  color: #00A7FF;
+}
+
+/* Menu Color */
+/* Background Color */
+body {
+  background-color: #162736;
+}
+
+/* Footer Color */
+.footer {
+  background-color: #070C10;
+}
+
+/***********************************************************/
+h1 {
+  margin-left: 10px;
+}
+
+/***************** navigationBar ************************************/
+#navigationBar {
+  margin-top: 2%;
+  padding-right: 15%;
+  padding-left: 15%;
+  margin-left: 1%;
+  margin-right: 1%
+}
+
+.nav-tabs .nav-link {
+  color: rgba(0, 167, 255, .5);
+}
+
+.nav-tabs .nav-link.active {
+  color: #00A7FF;
+  background-color: #162736;
+  border: 0px;
+  border-bottom: 3px solid #00A7FF;
+}
+
+.nav-tabs .nav-item.show .nav-link {
+  color: #00A7FF;
+  background-color: #162736;
+  border: 0px;
+}
+
+.nav-tabs .nav-link:hover:not(.nav-link.active) {
+  border: 0px;
+  color: rgba(0, 167, 255, 1);
+}
+
+.nav-tabs {
+  border-bottom: 1px solid rgba(112, 133, 148, 0.3);
+}
+
+.dropdown-menu {
+  background-color: #162736;
+}
+
+.dropdown-item {
+  color: rgba(0, 167, 255, .5);
+}
+
+.dropdown-item:hover {
+  color: rgba(0, 167, 255, 1);
+  background-color: #162736;
+}
+
+/***********************************************************/
