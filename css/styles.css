@@ -14,6 +14,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 20px;
+  background-color: #162736;
 }
 
 .footer {
@@ -29,8 +30,12 @@ body {
 /***********************************************************/
 /************** Coloring *********************************/
 /* Text color */
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p, label, span {
   color: #708594;
+}
+
+p {
+  margin-left: 2%;
 }
 
 a {
@@ -39,18 +44,20 @@ a {
 
 /* Menu Color */
 /* Background Color */
-body {
-  background-color: #162736;
-}
-
 /* Footer Color */
 .footer {
   background-color: #070C10;
+  text-align: right;
+  padding-right: 1%;
+}
+
+.container {
+  margin-left: 0px;
 }
 
 /***********************************************************/
 h1 {
-  margin-left: 10px;
+  margin-left: .5%;
 }
 
 /***************** navigationBar ************************************/
@@ -102,3 +109,48 @@ h1 {
 }
 
 /***********************************************************/
+.marketInfoContainer {
+  width: 80%;
+  margin-top: 3%;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 500px;
+}
+
+.tv-widget-chart .tv-widget-chart--with-border {
+  background-color: #070C10 !important;
+}
+
+.grid {
+  display: grid;
+  margin-top: 2%;
+  width: 100%;
+  height: auto;
+  grid-template: auto / 30% 70%;
+}
+
+.informationColumn {
+  background-color: #00A7FF;
+}
+
+form h1, form h2, form h3, form h4, form h5, form h6, form p, form label, form span {
+  color: white;
+}
+
+form section:not(.FormOfInvestment) label {
+  width: 100%;
+}
+
+form {
+  margin: 2%;
+}
+
+form section {
+  padding-left: 4%;
+}
+
+.submission {
+  text-align: center;
+  margin-bottom: 2%;
+  padding-left: 0px;
+}

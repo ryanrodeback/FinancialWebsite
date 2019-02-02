@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <title>Ryan's Financial Workshop: Creative Project</title>
+</head>
+
+<body>
+  <ul class="nav nav-tabs nav-justified" id="navigationBar">
+    <li class="nav-item">
+      <a class="nav-link" href="/index.html">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/pages/MarketInfo.html">Market Info</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools</a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/pages/InvestmentCalculator.html">Investment Calculator</a>
+        <a class="dropdown-item" href="/pages/DebtMortgageCalculator.html">Debt/Mortgage Calculator</a>
+        <a class="dropdown-item" href="/pages/BecomeDebtFree.html">Become Debt Free</a>
+      </div>
+    </li>
+  </ul>
+
+  <h1>Investment Calculator</h1>
+  <p>An exhilarating task. Investing is an activity that all should engage in. This tool
+    will show you why.
+  </p>
+  <hr>
+  <div class="grid">
+    <div class="informationColumn">
+      <form action="submission.html" method="POST">
+        <h3>Please enter some information</h3>
+        <section class="InitialAmount">
+          <label for="initialAmount">Initial Investment Amount?</label>
+          <input type="number" name="initialAmount" id="initialAmount">
+        </section>
+        <hr>
+        <section class="MonthlyContribution">
+          <label for="monthlyContribution">Additional Monthly Contribution</label>
+          <input type="number" name="monthlyContribution" id="monthlyContribution">
+        </section>
+        <hr>
+        <section class="LengthOfInvestment">
+          <label for="lengthOfInvestment">Length of Investment (years)</label>
+          <input type="number" name="lengthOfInvestment" id="lengthOfInvestment">
+        </section>
+        <hr>
+        <section class="RateOfReturn">
+          <label for="rateOfReturn">What is your expected rate of return?</label>
+          <br>
+          <span>0</span>
+          <input type="range" name="rateOfReturn" id="rateOfReturn" value="7" min="0" max="10">
+          <span>10</span>
+        </section>
+        <hr>
+        <section class="FormOfInvestment">
+          <span>Will you invest in mutual funds or ETFs?</span>
+          <br>
+          <input type="radio" name="typeOfInvestment" id="ETF" value="yes">
+          <label for="ETF">ETF</label>
+          <input type="radio" name="typeOfInvestment" id="Mutual Fund" value="yes">
+          <label for="Mutual Fund">Mutual Fund</label>
+        </section>
+        <hr>
+        <section class="submission">
+          <input type="submit">
+        </section>
+      </form>
+    </div>
+
+    <div class="chartColumn">
+    </div>
+  </div>
+
+
+  <footer class="footer">
+    <span class="text-muted">Created by Ryan Rodeback</span>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+
+
+
+
+</html>
