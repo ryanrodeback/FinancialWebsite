@@ -1,3 +1,33 @@
+let app = new Vue({
+  el: '#app',
+  data: {
+    stockTickers: ["IVV", "IUSV"],
+    timeFrames: ["1d", "1m", "3m", "6m", "1y", "2y", "5y"]
+  },
+  created() {},
+  computed: {
+
+  },
+  methods: {
+    async getStockData(stockTicker, timeFrame) {
+      const url = "https://api.iextrading.com/1.0/stock/" + stockTicker + "/chart/" + timeFrame;
+      console.log(url);
+      fetch(url)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(json) {
+          //console.log(json);
+          let changeInPercent = json[0].close / json[json.length - 1].close;
+          console.log((Math.floor(changeInPercent * 100) / 100).toString());
+          return (Math.floor(changeInPercent * 100) / 100).toString();
+        })
+    },
+  },
+});
+
+
+
 document.getElementById("ChartButton")
   .addEventListener("click", function(event) {
     event.preventDefault(); //event is the literal event. Has lots of weird stuff. event.preventDefault tells it not to reload everything
@@ -5,6 +35,12 @@ document.getElementById("ChartButton")
     document.getElementById("marketInfoArea").innerHTML = image;
     document.getElementById("marketInfoArea").style.height = "auto";
   });
+
+document.getElementById("symbolSubmit")
+  .addEventListener("click", function(event) {
+    event.preventDefault(); //event is the literal event. Has lots of weird stuff. event.preventDefault tells it not to reload everything
+  });
+
 
 document.getElementById("GraphButton")
   .addEventListener("click", function(event) {

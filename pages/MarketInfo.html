@@ -9,64 +9,78 @@
 </head>
 
 <body>
-  <ul class="nav nav-tabs nav-justified" id="navigationBar">
-    <li class="nav-item">
-      <a class="nav-link" href="/index.html">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="#">Market Info</a>
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools</a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="/pages/InvestmentCalculator.html">Investment Calculator</a>
-        <a class="dropdown-item" href="/pages/DebtMortgageCalculator.html">Debt/Mortgage Calculator</a>
-        <a class="dropdown-item" href="/pages/BecomeDebtFree.html">Become Debt Free</a>
+  <div id="app">
+    <ul class="nav nav-tabs nav-justified" id="navigationBar">
+      <li class="nav-item">
+        <a class="nav-link" href="/index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Market Info</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/pages/InvestmentCalculator.html">Investment Calculator</a>
+          <a class="dropdown-item" href="/pages/DebtMortgageCalculator.html">Debt/Mortgage Calculator</a>
+          <a class="dropdown-item" href="/pages/BecomeDebtFree.html">Become Debt Free</a>
+        </div>
+      </li>
+    </ul>
+
+    <!-- <div class=" marketInfoHeader"> -->
+    <ul class="nav nav-tabs nav-justified" id="MarketNavigationBar">
+      <li class="nav-item">
+        <a class="nav-link" id="AnnualizedButton">Annualized Returns</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="GraphButton">Graph</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" id="ChartButton">Chart</a>
+      </li>
+    </ul>
+
+
+    <div class="marketInfoContainer" id="marketInfoArea">
+
+      <label>Symbols you would like to see:</label>
+      <input id="symbolInput" type="text"></input><br />
+      <input id="symbolSubmit" type="submit" value="Submit"></input>
+      <div class="gridContainer" id="annualizedGrid">
+        <div class="Sticker">Sticker</div>
+        <div class="1d">1 Day</div>
+        <div class="1m">1 Month</div>
+        <div class="3m">3 Months</div>
+        <div class="6m">6 Months</div>
+        <div class="1y">1 Year</div>
+        <div class="2y">2 Years</div>
+        <div class="5y">5 Years</div>
+
+
+        <template v-for="ticker in stockTickers">
+          <div v-text="ticker"></div>
+          <template v-for="timeFrame in timeFrames">
+            <div v-text="getStockData(ticker, timeFrame)"></div>
+          </template>
+        </template>
+
+
       </div>
-    </li>
-  </ul>
-
-  <!-- <div class=" marketInfoHeader"> -->
-  <ul class="nav nav-tabs nav-justified" id="MarketNavigationBar">
-    <li class="nav-item">
-      <a class="nav-link" id="AnnualizedButton">Annualized Returns</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="GraphButton">Graph</a>
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link" id="ChartButton">Chart</a>
-    </li>
-  </ul>
-  <!-- </div> -->
-
-
-  <div class="marketInfoContainer" id="marketInfoArea">
-
-    <label>Symbols you would like to see:</label>
-    <input id="symbolInput" type="text"></input><br />
-    <input id="symbolSubmit" type="submit" value="Submit"></input>
-    <div class="gridContainer">
-      <div class="Sticker">Sticker</div>
-      <div class="1d">1 Day</div>
-      <div class="1m">1 Month</div>
-      <div class="3m">3 Months</div>
-      <div class="6m">6 Months</div>
-      <div class="1y">1 Year</div>
-      <div class="2y">2 Years</div>
-      <div class="3M">5 Years</div>
     </div>
+
+    <footer class="footer">
+      <a href="https://github.com/ryanrodeback/FinancialWebsite" rel="noopener noreferrer" target="_blank">Created by Ryan Rodeback</a>
+    </footer>
+
   </div>
-
-  <footer class="footer">
-    <a href="https://github.com/ryanrodeback/FinancialWebsite" rel="noopener noreferrer" target="_blank">Created by Ryan Rodeback</a>
-  </footer>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-  <script text="type/javascript" src="/scripts/MarketInfoScript.js"></script>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+
+<script text="type/javascript" src="/scripts/MarketInfoScript.js"></script>
+
 
 
 
