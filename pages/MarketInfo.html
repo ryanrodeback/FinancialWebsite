@@ -44,8 +44,8 @@
     <div class="marketInfoContainer" id="marketInfoArea">
 
       <label>Symbols you would like to see:</label>
-      <input id="symbolInput" type="text"></input><br />
-      <input id="symbolSubmit" type="submit" value="Submit"></input>
+      <input id="symbolInput" v-model="symbol" type="text"></input><br />
+      <input id="symbolSubmit" type="submit" value="Submit" @click="addSymbol"></input>
       <div class="gridContainer" id="annualizedGrid">
         <div class="Sticker">Sticker</div>
         <div class="1d">1 Day</div>
@@ -57,12 +57,9 @@
         <div class="5y">5 Years</div>
 
 
-        <template v-for="ticker in stockTickers">
-          <div v-text="ticker"></div>
-          <template v-for="timeFrame in timeFrames">
-            <div v-text="getStockData(ticker, timeFrame)"></div>
-          </template>
-        </template>
+        <div v-for="data in stockData">
+          {{data}}
+        </div>
 
 
       </div>

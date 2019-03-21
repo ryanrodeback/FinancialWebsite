@@ -2,14 +2,30 @@ let app = new Vue({
   el: '#app',
   data: {
     stockTickers: ["IVV", "IUSV"],
-    timeFrames: ["1d", "1m", "3m", "6m", "1y", "2y", "5y"]
+    timeFrames: ["1d", "1m", "3m", "6m", "1y", "2y", "5y"],
+    stockData: [],
+    symbol: "",
   },
-  created() {},
+  created() {
+    //this.getStockData(ticker, timeFrame);
+  },
   computed: {
 
   },
+  watch: {
+    stockTickers() {
+      this.stockData = [];
+      this.stockTickers.forEach(symbol => {
+        this.stockData.push(symbol);
+        this.timeFrames.forEach(time => {
+          this.getStockData(symbol, time);
+        });
+      })
+    }
+  },
   methods: {
-    async getStockData(stockTicker, timeFrame) {
+    getStockData(stockTicker, timeFrame) {
+      let self = this;
       const url = "https://api.iextrading.com/1.0/stock/" + stockTicker + "/chart/" + timeFrame;
       console.log(url);
       fetch(url)
@@ -20,9 +36,14 @@ let app = new Vue({
           //console.log(json);
           let changeInPercent = json[0].close / json[json.length - 1].close;
           console.log((Math.floor(changeInPercent * 100) / 100).toString());
-          return (Math.floor(changeInPercent * 100) / 100).toString();
+          let value = (Math.floor(changeInPercent * 100) / 100).toString();
+          self.stockData.push(value);
         })
     },
+
+    addSymbol() {
+      this.stockTickers.push(this.symbol);
+    }
   },
 });
 
